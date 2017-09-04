@@ -1,0 +1,49 @@
+{
+  "name": "frogs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development bankai start -p 8080",
+    "build": "npm run build-icons && npm run build-app && npm run build-staticfix",
+    "build-app": "NODE_ENV=production bankai build",
+    "build-staticfix": "rm ./dist/favicon.ico || true && cp ./favicon.ico ./dist/favicon.ico && rm ./dist/CNAME || true && cp ./CNAME ./dist/CNAME && rm ./dist/200.html || true && cp ./dist/index.html ./dist/200.html && rm ./dist/.surgeignore || true && cp ./.surgeignore ./dist/.surgeignore",
+    "build-icons": "svgo -f assets",
+    "inspect": "bankai inspect",
+    "test": "standard",
+    "publish": "surge -p ./dist && git push",
+    "publish-test": "npm run test && npm run build && surge -p ./dist -d frogs-test.surge.sh"
+  },
+  "author": "srilq <git@srilq.email>",
+  "license": "ISC",
+  "devDependencies": {
+    "bankai": "^8.1.1",
+    "standard": "^10.0.3",
+    "svgo": "^0.7.2"
+  },
+  "dependencies": {
+    "babel-plugin-es6-promise": "1.1.1",
+    "babelify": "7.3.0",
+    "brfs": "^1.4.3",
+    "choo": "^6.0.0",
+    "choo-devtools": "^1.3.1",
+    "choo-log": "^7.2.1",
+    "choo-service-worker": "^2.2.0",
+    "es6-promise": "4.1.1",
+    "random-frog": "github:srilq/random-frog",
+    "setimmediate": "1.0.5",
+    "tachyons": "^4.8.1"
+  },
+  "browserify": {
+    "transform": [
+      "brfs",
+      "babelify"
+    ]
+  },
+  "babel": {
+    "plugins": [
+      [
+        "es6-promise"
+      ]
+    ]
+  }
+}

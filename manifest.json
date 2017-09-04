@@ -1,0 +1,12 @@
+{
+  "name": "frogs",
+  "short_name": "frogs",
+  "start_url": "/",
+  "background_color": "#222222",
+  "theme_color": "#84C264",
+  "icons": [{
+    "src": "/assets/icon.png",
+    "type": "image/png",
+    "sizes": "512x512"
+  }]
+}
