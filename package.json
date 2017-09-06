@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "babel-plugin-es6-promise": "1.1.1",
+    "babel-plugin-transform-es2015-arrow-functions": "6.22.0",
     "babelify": "7.3.0",
     "brfs": "^1.4.3",
     "choo": "^6.0.0",
@@ -29,9 +30,11 @@
     "choo-log": "^7.2.1",
     "choo-service-worker": "^2.2.0",
     "es6-promise": "4.1.1",
+    "nanoanimation": "1.0.0",
     "random-frog": "github:srilq/random-frog",
     "setimmediate": "1.0.5",
-    "tachyons": "^4.8.1"
+    "tachyons": "^4.8.1",
+    "web-animations-js": "2.3.1"
   },
   "browserify": {
     "transform": [
@@ -41,9 +44,8 @@
   },
   "babel": {
     "plugins": [
-      [
-        "es6-promise"
-      ]
+      "es6-promise",
+      "transform-es2015-arrow-functions"
     ]
   }
 }
