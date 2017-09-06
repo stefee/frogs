@@ -1,9 +1,6 @@
 # frogs
 
- * it's a website
- * uses [choo][choo]. very cute.
- * built with [bankai][bankai].
- * static hosted on [surge.sh][surge].
+[frogs.fun][frogs.fun] 🐸
 
 ## What do do
 
@@ -11,10 +8,8 @@ Run `npm install` and `npm run dev -- -o` to serve the site locally and open it 
 
 Run `npm run` to list all of the scripts in this boy.
 
-## Credit
+---
 
-Icon made by Freepik from www.flaticon.com is licensed by CC 3.0 BY
+Icon made by [Freepik](http://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
 
-[choo]: https://github.com/choojs/choo "choo"
-[bankai]: https://github.com/choojs/bankai "bankai"
-[surge]: https://surge.sh "surge"
+[frogs.fun]: http://frogs.fun/ "frogs.fun"
