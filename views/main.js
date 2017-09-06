@@ -1,7 +1,6 @@
 var html = require('choo/html')
 var path = require('path')
 var fs = require('fs')
-require('setimmediate')
 var randomFrog = require('random-frog')
 
 var title = 'F R O G S'
