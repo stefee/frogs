@@ -1,8 +1,6 @@
 var choo = require('choo')
 var html = require('choo/html')
 var css = require('sheetify')
-var animate = require('nanoanimation')
-require('web-animations-js')
 
 css('tachyons')
 
@@ -23,9 +21,13 @@ if (!module.parent) app.mount('body')
 else module.exports = app
 
 function frog (state, emitter) {
+  var animate = require('nanoanimation')
+  require('web-animations-js')
+
   state.frog = 'https://imgur.com/vVsjW9D.png'
-  state.boy = html`<img class="img w3 center db" alt="frog boy" src="/assets/frog.svg">`
-  state.spin = animate(state.boy, [
+  state.boy = {}
+  state.boy.el = html`<img class="img w3 center db" alt="spinny boy" src="/assets/frog.svg">`
+  state.boy.anim = animate(state.boy.el, [
     { transform: 'rotate(0deg)' },
     { transform: 'rotate(360deg)' }
   ], {
@@ -34,12 +36,12 @@ function frog (state, emitter) {
     iterations: Infinity,
     fill: 'both'
   })
-  emitter.on('frog', function (frog, boy) {
-    state.frog = frog
-    state.spin.play()
+  emitter.on('frog:get', function (url) {
+    state.frog = url
+    state.boy.anim.play()
     emitter.emit('render')
   })
-  emitter.on('frogLoaded', function () {
-    state.spin.pause()
+  emitter.on('frog:load', function () {
+    state.boy.anim.pause()
   })
 }
