@@ -6,12 +6,10 @@
     "dev": "NODE_ENV=development bankai start -p 8080",
     "build": "npm run build-icons && npm run build-app && npm run build-staticfix",
     "build-app": "NODE_ENV=production bankai build",
-    "build-staticfix": "mkdir -p ./dist && rm -f ./dist/200.html && ln -s index.html ./dist/200.html && rm -f ./dist/manifest.json && cp ./manifest.json ./dist/manifest.json && rm -f ./dist/favicon.ico && cp ./favicon.ico ./dist/favicon.ico && rm -f ./dist/CNAME && cp ./CNAME ./dist/CNAME && rm -f ./dist/.surgeignore && cp ./.surgeignore ./dist/.surgeignore",
+    "build-staticfix": "mkdir -p ./dist && rm -f ./dist/manifest.json && cp ./manifest.json ./dist/manifest.json && rm -f ./dist/favicon.ico && cp ./favicon.ico ./dist/favicon.ico",
     "build-icons": "svgo -f assets",
     "inspect": "bankai inspect",
-    "test": "standard",
-    "publish": "surge -p ./dist && git push",
-    "publish-test": "npm run test && npm run build && surge -p ./dist -d frogs-test.surge.sh"
+    "test": "standard"
   },
   "author": "srilq <git@srilq.email>",
   "license": "ISC",
