@@ -6,7 +6,7 @@
     "dev": "NODE_ENV=development bankai start -p 8080",
     "build": "npm run build-icons && npm run build-app && npm run build-staticfix",
     "build-app": "NODE_ENV=production bankai build",
-    "build-staticfix": "mkdir -p ./dist && rm -f ./dist/manifest.json && cp ./manifest.json ./dist/manifest.json && rm -f ./dist/favicon.ico && cp ./favicon.ico ./dist/favicon.ico",
+    "build-staticfix": "mkdir -p ./dist && rm -f ./dist/_redirects && cp ./_redirects ./dist/_redirects && rm -f ./dist/manifest.json && cp ./manifest.json ./dist/manifest.json && rm -f ./dist/favicon.ico && cp ./favicon.ico ./dist/favicon.ico",
     "build-icons": "svgo -f assets",
     "inspect": "bankai inspect",
     "test": "standard"

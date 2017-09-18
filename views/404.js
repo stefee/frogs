@@ -18,8 +18,8 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== title) emit(state.events.DOMTITLECHANGE, title)
   return html`
-    <body class="bg-black white serif">
-      <h1 class="${error404} f-6 i tc">404</h1>
+    <body class="serif">
+      <h1 class="${error404} f-2 i tc">no frogs here bud.<br><a href="/">go home</a></h1>
     </body>
   `
 }
