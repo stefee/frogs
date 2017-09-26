@@ -19,13 +19,15 @@ function view (state, emit) {
 
   var image
   if (state.frog.current) {
-    image = html`<img class="img mv4 center db" alt="random frog picture" src="${getImageURL(state.frog.current)}">`
+    image = html`<img class="img mv4 center db tc" alt="frog picture" src="${getImageURL(state.frog.current)}">`
     image.addEventListener('load', onload, false)
     image.addEventListener('error', onload, false)
     image.addEventListener('abort', onload, false)
-  } else {
+  } else if (!state.frog.notFound) {
     image = html`<div class="mv5 f5 i tc">frugs...?</div>`
     emit('frog:get', state.params.hash)
+  } else {
+    image = html`<h1 class="mv5 i tc">frug not found.</h1>`
   }
 
   return html`

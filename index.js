@@ -61,8 +61,6 @@ function frog (state, emitter) {
   })
 
   emitter.on('frog:get', function (hash) {
-    state.boy.anim.play()
-
     if (state.frog.data) {
       findFrog(state.frog.data, hash)
     } else {
@@ -74,6 +72,8 @@ function frog (state, emitter) {
 
     function findFrog (data, hash) {
       state.frog.current = data.find(el => el.hash === hash)
+      if (!state.frog.current) state.frog.notFound = true
+      else state.frog.notFound = false
       emitter.emit(state.events.RENDER)
     }
   })
